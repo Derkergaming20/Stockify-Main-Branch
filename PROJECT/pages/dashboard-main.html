@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/LOGO.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Cinzel+Decorative:wght@400;700;900&family=Graduate&family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><a href="./dashboard-main.html">HOME</a></li>
+        <li><button id="addItemBtn">ADD ITEMS</button></li>
+        <li><a href="../pages/login.php" id="Logout-btn">LOGOUT</a></li>
+      </ul>
+    </nav>
+
+    <div class="AddBtn">
+      <a href=""><button>add items</button></a>
+    </div>
+
+    <header class="head-container">
+      <h1>Welcome "Admin"!</h1>
+      <h2>Manage your inventory efficiently with CITEMIS dashboard</h2>
+    </header>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay">
+      <div id="addItemContainer" class="add-item-container">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <h2>Add New Item</h2>
+        <form id="addItemForm">
+          <input type="text" id="itemName" placeholder="Item Name" required />
+          <input
+            type="text"
+            id="itemDescription"
+            placeholder="Description"
+            required
+          />
+          <input
+            type="text"
+            id="itemQuantity"
+            placeholder="Quantity"
+            required
+          />
+          <button type="submit">Add Item</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="table-container">
+      <div class="title-table">
+        <h1>INVENTORY ITEMS</h1>
+        <input type="text" id="searchInput" placeholder="Search Items..." />
+      </div>
+
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th>item#</th>
+            <th>item name</th>
+            <th>description</th>
+            <th>item qty</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td>001</td>
+            <td>Laptop</td>
+            <td>MSI Titan-18-HX-Dragon-Edition-Norse-Myth-A2XWX</td>
+            <td>10 pcs</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Flash Drive</td>
+            <td>
+              SANDISK 256GB ULTRA FLAIR USB3.0 (SDCZ73-256G-G46) Flash Drive
+              (Black)
+            </td>
+            <td>5 pcs</td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Laptop</td>
+            <td>ASUS TUF FX505</td>
+            <td>3 pcs</td>
+          </tr>
+          <tr>
+            <td>004</td>
+            <td>GPU</td>
+            <td>RTX 3060</td>
+            <td>5 pcs</td>
+          </tr>
+          <tr>
+            <td>005</td>
+            <td>Monitor</td>
+            <td>
+              Nvision 22, 24, 27, Inch IPS Monitor 100Hz Framless FHD Gaming
+              Monitor PC Laptop Monitor N2455-PRO
+            </td>
+            <td>5, 6, 3 pcs</td>
+          </tr>
+          <tr>
+            <td>006</td>
+            <td>Mouse</td>
+            <td>PRO X SUPERLIGHT 2C</td>
+            <td>25 pcs</td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>Components</td>
+            <td>RG 45</td>
+            <td>150 pcs</td>
+          </tr>
+          <tr>
+            <td>008</td>
+            <td>Components</td>
+            <td>Ethernet Cable</td>
+            <td>25 meters</td>
+          </tr>
+          <tr>
+            <td>009</td>
+            <td>System Unit</td>
+            <td>
+              Gaming System Unit Ryzen 7 5700X | MSI B550M PRO VDH WIFI | 16GB
+              RAM | 500GB M.2 SSD | RTX 2060 12GB |
+            </td>
+            <td>3 pcs</td>
+          </tr>
+          <tr>
+            <td>010</td>
+            <td>Keyboard</td>
+            <td>Mechanical Keyboard</td>
+            <td>10 pcs</td>
+          </tr>
+        </tbody>
+      </table>
+      <footer class="no-results">No items found matching your search.</footer>
+    </section>
+  </body>
+  <script src="./assets/js/add-items_container.js"></script>
+</html>
