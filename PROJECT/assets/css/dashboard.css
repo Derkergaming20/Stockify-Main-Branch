@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,14 +9,18 @@ body {
   font-family: "Cinzel Decorative", serif;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  padding: 20px;
+  padding: 15px;
 }
 
+/* Navigation Styles */
 nav {
-  background-color: #1a1a1a;
-  padding: 10px;
-  border-radius: 15px;
-  margin-bottom: 2rem;
+  background-color: #0f2027;
+  display: grid;
+  place-items: center;
+  width: 35rem;
+  margin: 0 auto 2rem;
+  border-radius: 10px;
+  padding: 13px;
   box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
@@ -23,21 +28,20 @@ nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 nav a,
 nav button {
   text-decoration: none;
   color: #4fc3f7;
-  font-weight: bold;
-  transition: color 0.3s;
+  font-weight: normal;
   font-size: 1.5rem;
+  font-family: "Cinzel Decorative", serif;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: "Cinzel Decorative", serif;
-  font-weight: lighter;
+  transition: color 0.3s;
 }
 
 nav button:hover {
@@ -47,27 +51,8 @@ nav button:hover {
 #Logout-btn {
   color: #ff6b6b;
 }
-.AddBtn {
-  margin-right: 100px;
-}
-.AddBtn button {
-  text-decoration: none;
-  display: flex;
-  padding: 15px 40px;
-  font-family: "Cinzel Decorative", serif;
-  font-weight: lighter;
-  border-radius: 10px;
-  background-color: white;
-  color: #2196f3;
-  font-weight: bold;
-}
 
-.AddBtn a {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  text-decoration: none;
-}
+/* Header Styles */
 .head-container {
   color: white;
   text-align: center;
@@ -77,21 +62,21 @@ nav button:hover {
 .head-container h1 {
   color: #4fc3f7;
   font-size: 3rem;
+  font-weight: normal;
   letter-spacing: 4px;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-weight: lighter;
 }
 
 .head-container h2 {
   font-size: 1.5rem;
+  font-weight: 400;
   color: #e0e0e0;
   letter-spacing: 3px;
-  font-weight: 400;
   padding-bottom: 10px;
-  font-weight: lighter;
 }
 
+/* Table Container Styles */
 .table-container {
   height: auto;
   background-color: #4fc3f7;
@@ -104,14 +89,17 @@ nav button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: lighter;
 }
 
 .table-container h1 {
   color: white;
   font-size: 2rem;
+  font-weight: lighter;
   text-shadow: 0 2px 5px #1a1a1a;
 }
 
+/* Search Input Styles */
 #searchInput {
   font-family: "Cinzel Decorative", serif;
   background-color: #1a1a1a;
@@ -123,6 +111,11 @@ nav button:hover {
   font-size: 20px;
 }
 
+/* Table Styles */
+#inventoryTable {
+  background-color: rgb(212, 198, 198);
+}
+
 table {
   width: 100%;
   table-layout: fixed;
@@ -132,23 +125,23 @@ table {
 }
 
 thead {
-  top: 0;
   position: sticky;
+  top: 0;
   background-color: white;
 }
 
 th {
   font-weight: bold;
-  letter-spacing: 2px;
   font-size: 20px;
+  letter-spacing: 2px;
 }
 
 th,
 td {
   border-bottom: 1px solid white;
   padding: 10px 20px;
-  word-break: break-all;
   text-align: left;
+  word-break: break-all;
 }
 
 td {
@@ -159,6 +152,7 @@ tbody {
   text-transform: lowercase;
 }
 
+/* Modal Overlay Styles */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -166,21 +160,24 @@ tbody {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px); /* Increased blur effect */
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  font-weight: lighter;
 }
 
 .modal-overlay.active {
   display: flex;
 }
 
+/* Add Item Container Styles */
 .add-item-container {
-  background-color: #1a1a1a;
+  background-color: rgba(15, 32, 39, 0.85); /* Made semi-transparent */
+  backdrop-filter: blur(10px); /* Added glass effect */
   padding: 30px;
   border-radius: 15px;
+  border: 1px solid rgba(79, 195, 247, 0.3); /* Added subtle border */
   color: white;
   max-width: 500px;
   width: 90%;
@@ -188,7 +185,6 @@ tbody {
   position: relative;
   animation: slideIn 0.3s ease-out;
 }
-
 @keyframes slideIn {
   from {
     transform: translateY(-50px);
@@ -206,32 +202,21 @@ tbody {
   text-align: center;
 }
 
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: #ff6b6b;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 0;
-  width: auto;
-  margin: 0;
-}
-
-.close-modal:hover {
-  color: #ff4444;
+/* Form Styles */
+#addItemForm label {
+  color: #4fc3f7;
 }
 
 .add-item-container input {
   display: block;
-  margin: 10px 0;
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
+  margin: 10px 0 35px;
+  padding: 14px;
   border: none;
+  border-radius: 8px;
   font-family: "Cinzel Decorative", serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .add-item-container button {
@@ -250,10 +235,83 @@ tbody {
   background-color: #2196f3;
 }
 
+#addItem-Btn {
+  background-color: green;
+  color: white;
+}
+
+#cancelItem-Btn {
+  background-color: darkred;
+  color: white;
+}
+
+/* Close Modal Button */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  width: auto;
+  margin: 0;
+}
+
+.close-modal:hover {
+  color: #ff4444;
+}
+
+/* No Results Footer */
 .no-results {
   display: none;
   text-align: center;
   padding: 20px;
   color: #1a1a1a;
   font-size: 18px;
+}
+
+/* Action Buttons in Table */
+.update-btn,
+.delete-btn {
+  padding: 8px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Cinzel Decorative", serif;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.update-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.update-btn:hover {
+  background-color: #45a049;
+}
+
+.delete-btn {
+  background-color: #8b0000;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #a30000;
+}
+
+/* Update button specific styles */
+#updateItem-Btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+#cancelUpdate-Btn {
+  background-color: darkred;
+  color: white;
 }

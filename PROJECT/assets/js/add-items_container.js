@@ -1,18 +1,24 @@
 const modal = document.getElementById("modalOverlay");
-const addItemBtn = document.getElementById("addItemBtn");
-const closeModal = document.getElementById("closeModal");
+const addItemsBtn = document.getElementById("addItemsBtn");
+const cancelBtn = document.getElementById("cancelItem-Btn");
 
-addItemBtn.addEventListener("click", () => {
+// Open modal when clicking "ADD ITEMS"
+addItemsBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   modal.classList.add("active");
 });
 
-closeModal.addEventListener("click", () => {
+// Close modal when clicking cancel button
+cancelBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("addItemForm").reset();
   modal.classList.remove("active");
 });
 
-// Close modal when clicking outside
+// Close modal when clicking outside the container
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
+    document.getElementById("addItemForm").reset();
     modal.classList.remove("active");
   }
 });
@@ -21,20 +27,24 @@ modal.addEventListener("click", (e) => {
 document.getElementById("addItemForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const itemNumber = document.getElementById("itemNumber").value;
   const itemName = document.getElementById("itemName").value;
   const itemDescription = document.getElementById("itemDescription").value;
   const itemQuantity = document.getElementById("itemQuantity").value;
 
   const tableBody = document.getElementById("tableBody");
+
+  // Auto-generate item number based on existing rows
+  const currentRows = tableBody.querySelectorAll("tr").length;
+  const itemNumber = String(currentRows + 1).padStart(3, "0");
+
   const newRow = tableBody.insertRow();
 
   newRow.innerHTML = `
-            <td>${itemNumber}</td>
-            <td>${itemName}</td>
-            <td>${itemDescription}</td>
-            <td>${itemQuantity}</td>
-          `;
+    <td>${itemNumber}</td>
+    <td>${itemName}</td>
+    <td>${itemDescription}</td>
+    <td>${itemQuantity}</td>
+  `;
 
   // Reset form and hide modal
   document.getElementById("addItemForm").reset();
