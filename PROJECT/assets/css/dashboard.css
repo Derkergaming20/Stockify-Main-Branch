@@ -97,14 +97,17 @@ nav button:hover {
   font-size: 2rem;
   font-weight: lighter;
   text-shadow: 0 2px 5px #1a1a1a;
+  font-family: "electrolize";
+  font-size: 45px;
 }
 
 /* Search Input Styles */
 #searchInput {
-  font-family: "Cinzel Decorative", serif;
+  font-family: "electrolize";
   background-color: #1a1a1a;
   color: white;
   width: 20rem;
+  height: 55px;
   padding: 0.4rem;
   border: 2px solid #ffffff;
   border-radius: 20px;
@@ -114,6 +117,7 @@ nav button:hover {
 /* Table Styles */
 #inventoryTable {
   background-color: rgb(212, 198, 198);
+  font-family: "electrolize";
 }
 
 table {
@@ -122,6 +126,7 @@ table {
   border-collapse: collapse;
   margin-top: 1rem;
   min-width: 1000px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 thead {
@@ -146,10 +151,6 @@ td {
 
 td {
   font-size: 23px;
-}
-
-tbody {
-  text-transform: lowercase;
 }
 
 /* Modal Overlay Styles */
@@ -214,9 +215,10 @@ tbody {
   padding: 14px;
   border: none;
   border-radius: 8px;
-  font-family: "Cinzel Decorative", serif;
+  font-family: "electrolize";
   font-size: 20px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .add-item-container button {
@@ -245,25 +247,6 @@ tbody {
   color: white;
 }
 
-/* Close Modal Button */
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: #ff6b6b;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 0;
-  width: auto;
-  margin: 0;
-}
-
-.close-modal:hover {
-  color: #ff4444;
-}
-
 /* No Results Footer */
 .no-results {
   display: none;
@@ -276,15 +259,16 @@ tbody {
 /* Action Buttons in Table */
 .update-btn,
 .delete-btn {
-  padding: 8px 20px;
+  padding: 11px 30px;
   margin: 5px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-family: "Cinzel Decorative", serif;
+  font-family: "electrolize";
   font-size: 16px;
   font-weight: bold;
   transition: all 0.3s;
+  text-transform: uppercase;
 }
 
 .update-btn {
