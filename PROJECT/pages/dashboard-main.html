@@ -1,240 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/dashboard.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/img/LOGO.png"
-      type="image/x-icon"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Electrolize&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <!-- Navigation Bar -->
-    <nav>
-      <ul>
-        <li><a href="./dashboard-main.html">HOME</a></li>
-        <li><a href="#" id="addItemsBtn">ADD ITEMS</a></li>
-        <li><a href="../pages/login.php" id="Logout-btn">LOGOUT</a></li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
+  <link rel="shortcut icon" href="./assets/img/LOGO.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Electrolize&display=swap"
+    rel="stylesheet" />
+</head>
 
-    <!-- Header Section -->
-    <header class="head-container">
-      <h1>Welcome "Admin"!</h1>
-      <h2>Manage your inventory efficiently with CITEMIS dashboard</h2>
-    </header>
+<body>
+  <!-- Main Navigation -->
+  <nav class="main-navigation">
+    <ul class="navigation-list">
+      <li class="navigation-item"><a href="./dashboard-main.html" class="navigation-link">HOME</a></li>
+      <li class="navigation-item"><a href="#" class="navigation-link" id="js-add-items-trigger">ADD ITEMS</a></li>
+      <li class="navigation-item"><a href="../pages/login.php" class="navigation-link" id="js-logout-trigger">LOGOUT</a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- Modal Overlay -->
-    <div id="modalOverlay" class="modal-overlay">
-      <div id="addItemContainer" class="add-item-container">
-        <h2>What items do <br />you want to add?</h2>
-        <form id="addItemForm">
-          <label for="itemName">Item Name:</label>
-          <input type="text" id="itemName" placeholder="Enter Items" required />
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Welcome "Admin"!</h1>
+    <h2 class="dashboard-subtitle">Manage your inventory efficiently with CITEMIS dashboard</h2>
+  </header>
 
-          <label for="itemDescription">Description:</label>
-          <input
-            type="text"
-            id="itemDescription"
-            placeholder="Enter Description"
-            required
-          />
+  <!-- Add Item Modal -->
+  <section id="add-item-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container modal-container--add-item">
+      <h2 class="modal-title">What items do you want to add?</h2>
+      <form id="add-item-form" class="item-form">
+        <div class="form-group">
+          <label for="add-item-name" class="form-label">Item Name:</label>
+          <input type="text" id="add-item-name" class="form-input" placeholder="Enter Items" required />
+        </div>
 
-          <label for="itemQuantity">Quantity:</label>
-          <input
-            type="number"
-            id="itemQuantity"
-            placeholder="Enter Quantity"
-            required
-          />
+        <div class="form-group">
+          <label for="add-item-description" class="form-label">Description:</label>
+          <input type="text" id="add-item-description" class="form-input" placeholder="Enter Description" required />
+        </div>
 
-          <button type="submit" id="addItem-Btn">Add</button>
-          <button type="button" id="cancelItem-Btn">Cancel</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <label for="add-item-quantity" class="form-label">Quantity:</label>
+          <input type="number" id="add-item-quantity" class="form-input" placeholder="Enter Quantity" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="button button--primary" id="js-add-item-submit">Add</button>
+          <button type="button" class="button button--secondary" id="js-add-item-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Update Item Modal -->
+  <section id="update-item-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container modal-container--update-item">
+      <h2 class="modal-title">Update Item Details</h2>
+      <form id="update-item-form" class="item-form">
+        <div class="form-group">
+          <label for="update-item-id" class="form-label">ID:</label>
+          <input type="text" id="update-item-id" class="form-input" placeholder="#:" readonly />
+        </div>
+
+        <div class="form-group">
+          <label for="update-item-name" class="form-label">Item Name:</label>
+          <input type="text" id="update-item-name" class="form-input" placeholder="Update item name:" />
+        </div>
+
+        <div class="form-group">
+          <label for="update-item-description" class="form-label">Description:</label>
+          <input type="text" id="update-item-description" class="form-input" placeholder="Update the description:" />
+        </div>
+
+        <div class="form-group">
+          <label for="update-item-quantity" class="form-label">Qty:</label>
+          <input type="number" id="update-item-quantity" class="form-input" placeholder="Update item quantity:" />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="button button--primary" id="js-update-item-submit">Update</button>
+          <button type="button" class="button button--secondary" id="js-update-item-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Inventory Table Section -->
+  <section class="inventory-section">
+    <div class="inventory-header">
+      <h1 class="inventory-title">INVENTORY ITEMS</h1>
+      <input type="text" id="inventory-search" class="search-input" placeholder="Search Items..." />
     </div>
 
-    <!-- Update Modal -->
-    <div id="updateModalOverlay" class="modal-overlay">
-      <div id="updateItemContainer" class="add-item-container">
-        <h2>Update Item</h2>
-        <form id="updateItemForm">
-          <input type="hidden" id="updateItemId" />
+    <table class="inventory-table">
+      <thead class="inventory-table-head">
+        <tr>
+          <th>MIS#</th>
+          <th>ITEM NAME</th>
+          <th>DESCRIPTION</th>
+          <th>ITEM QTY</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody class="inventory-table-body">
+        <tr class="inventory-row" data-item-id="001">
+          <td class="inventory-cell inventory-cell--id">0093213</td>
+          <td class="inventory-cell inventory-cell--name">LAPTOP</td>
+          <td class="inventory-cell inventory-cell--description">MSI Titan-18-HX-Dragon-Edition-Norse-Myth-A2XWX</td>
+          <td class="inventory-cell inventory-cell--quantity">10 pcs</td>
+          <td class="inventory-cell inventory-cell--actions">
+            <button class="button button--action js-update-item" data-item-id="001">Update</button>
+            <button class="button button--danger js-delete-item" data-item-id="001">Delete</button>
+          </td>
+        </tr>
+        <tr class="inventory-row" data-item-id="002">
+          <td class="inventory-cell inventory-cell--id">0213312</td>
+          <td class="inventory-cell inventory-cell--name">FLASH DRIVE</td>
+          <td class="inventory-cell inventory-cell--description">SANDISK 256GB ULTRA FLAIR USB3.0 (SDCZ73-256G-G46)
+            Flash Drive (Black)
+          </td>
+          <td class="inventory-cell inventory-cell--quantity">5 pcs</td>
+          <td class="inventory-cell inventory-cell--actions">
+            <button class="button button--action js-update-item" data-item-id="002">Update</button>
+            <button class="button button--danger js-delete-item" data-item-id="002">Delete</button>
+          </td>
+        </tr>
+        <tr class="inventory-row" data-item-id="003">
+          <td class="inventory-cell inventory-cell--id">321312</td>
+          <td class="inventory-cell inventory-cell--name">LAPTOP</td>
+          <td class="inventory-cell inventory-cell--description">ASUS TUF FX505</td>
+          <td class="inventory-cell inventory-cell--quantity">3 pcs</td>
+          <td class="inventory-cell inventory-cell--actions">
+            <button class="button button--action js-update-item" data-item-id="003">Update</button>
+            <button class="button button--danger js-delete-item" data-item-id="003">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-          <label for="updateItemName">Item Name:</label>
-          <input
-            type="text"
-            id="updateItemName"
-            placeholder="Enter Items"
-            required
-          />
-
-          <label for="updateItemDescription">Description:</label>
-          <input
-            type="text"
-            id="updateItemDescription"
-            placeholder="Enter Description"
-            required
-          />
-
-          <label for="updateItemQuantity">Quantity:</label>
-          <input
-            type="text"
-            id="updateItemQuantity"
-            placeholder="Enter Quantity"
-            required
-          />
-
-          <button type="submit" id="updateItem-Btn">Update</button>
-          <button type="button" id="cancelUpdate-Btn">Cancel</button>
-        </form>
-      </div>
+    <div class="inventory-empty-state" id="inventory-no-results" style="display: none;">
+      <p class="empty-state-message">No items found matching your search.</p>
     </div>
+  </section>
 
-    <!-- Inventory Table Section -->
-    <section class="table-container">
-      <div class="title-table">
-        <h1>INVENTORY ITEMS</h1>
-        <input type="text" id="searchInput" placeholder="Search Items..." />
-      </div>
+  <!-- JavaScript -->
+  <script src="../assets/js/add-items_container.js"></script>
+</body>
 
-      <table id="inventoryTable">
-        <thead>
-          <tr>
-            <th>MIS#</th>
-            <th>ITEM NAME</th>
-            <th>DESCRIPTION</th>
-            <th>ITEM QTY</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <tr data-id="001">
-            <td>0093213</td>
-            <td>LAPTOP</td>
-            <td>MSI Titan-18-HX-Dragon-Edition-Norse-Myth-A2XWX</td>
-            <td>10 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="002">
-            <td>0213312</td>
-            <td>FLASH DRIVE</td>
-            <td>
-              SANDISK 256GB ULTRA FLAIR USB3.0 (SDCZ73-256G-G46) Flash Drive
-              (Black)
-            </td>
-            <td>5 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="003">
-            <td>321312</td>
-            <td>LAPTOP</td>
-            <td>ASUS TUF FX505</td>
-            <td>3 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="004">
-            <td>321311</td>
-            <td>GPU</td>
-            <td>RTX 3060</td>
-            <td>5 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="005">
-            <td>421302</td>
-            <td>MONITOR</td>
-            <td>
-              Nvision 22, 24, 27, Inch IPS Monitor 100Hz Framless FHD Gaming
-              Monitor PC Laptop Monitor N2455-PRO
-            </td>
-            <td>5, 6, 3 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="006">
-            <td>23121</td>
-            <td>MOUSE</td>
-            <td>PRO X SUPERLIGHT 2C</td>
-            <td>25 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="007">
-            <td>007</td>
-            <td>COMPONENTS</td>
-            <td>RG 45</td>
-            <td>150 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="008">
-            <td>008</td>
-            <td>COMPONENTS</td>
-            <td>Ethernet Cable</td>
-            <td>25 meters</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="009">
-            <td>009</td>
-            <td>SYSTEM UNIT</td>
-            <td>
-              Gaming System Unit Ryzen 7 5700X | MSI B550M PRO VDH WIFI | 16GB
-              RAM | 500GB M.2 SSD | RTX 2060 12GB |
-            </td>
-            <td>3 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr data-id="010">
-            <td>010</td>
-            <td>KEYBOARD</td>
-            <td>Mechanical Keyboard</td>
-            <td>10 pcs</td>
-            <td>
-              <button class="update-btn">Update</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <footer class="no-results">No items found matching your search.</footer>
-    </section>
-
-    <!-- JavaScript -->
-    <script src="../assets/js/add-items_container.js"></script>
-  </body>
 </html>

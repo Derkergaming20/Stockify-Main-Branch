@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="./assets/css/dashboard.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/img/LOGO.png"
-      type="image/x-icon"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Cinzel+Decorative:wght@400;700;900&family=Graduate&family=Jersey+10&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <nav>
-      <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#" id="Logout-btn">LOGOUT</a></li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./assets/css/dashboard.css" />
+  <link rel="shortcut icon" href="./assets/img/LOGO.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Cinzel+Decorative:wght@400;700;900&family=Graduate&family=Jersey+10&display=swap"
+    rel="stylesheet" />
+</head>
 
-    <header class="head-container">
-      <h1>Welcome "User"!</h1>
-      <h2>Manage your inventory efficiently with CITEMIS dashboard</h2>
-    </header>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#" id="Logout-btn">LOGOUT</a></li>
+    </ul>
+  </nav>
 
-    <section class="table-container">
-      <div class="title-table">
-        <h1>INVENTORY ITEMS</h1>
-        <input type="text" id="searchInput" placeholder="Search Items..." />
-      </div>
+  <header class="head-container">
+    <h1>Welcome "User"!</h1>
+    <h2>Manage your inventory efficiently with CITEMIS dashboard</h2>
+  </header>
 
-      <table id="inventoryTable">
-        <thead>
-          <tr>
-            <th>item#</th>
-            <th>item name</th>
-            <th>description</th>
-            <th>item qty</th>
-            <th>actions</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody">
-          <tr>
-            <td>01</td>
-            <td>Laptop</td>
-            <td>MSI Titan-18-HX-Dragon-Edition-Norse-Myth-A2XWX</td>
-            <td>10 pcs</td>
-            <td>
-              <div class="action-buttons">
-                <a href="#" onclick="updateItem(1); return false;">UPDATE</a>
+  <section class="table-container">
+    <div class="title-table">
+      <h1>INVENTORY ITEMS</h1>
+      <input type="text" id="searchInput" placeholder="Search Items..." />
+    </div>
 
-                <a href="#" onclick="deleteItem(1); return false;">DELETE</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <footer class="no-results">No items found matching your search.</footer>
-    </section>
-  </body>
+    <table id="inventoryTable">
+      <thead>
+        <tr>
+          <th>item#</th>
+          <th>item name</th>
+          <th>description</th>
+          <th>item qty</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td>01</td>
+          <td>Laptop</td>
+          <td>MSI Titan-18-HX-Dragon-Edition-Norse-Myth-A2XWX</td>
+          <td>10 pcs</td>
+          <td>
+            <div class="action-buttons">
+              <a href="#" onclick="updateItem(1); return false;">UPDATE</a>
+
+              <a href="#" onclick="deleteItem(1); return false;">DELETE</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer class="no-results">No items found matching your search.</footer>
+  </section>
+</body>
+
 </html>
